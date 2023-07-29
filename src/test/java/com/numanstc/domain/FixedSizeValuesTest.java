@@ -10,7 +10,7 @@ class FixedSizeValuesTest {
     void itShouldReturnAOneLineAndOneColumnValue() {
         FixedSizeValues sut = new FixedSizeValues(1, 1);
 
-        sut.put(0, 0, "Expected Message");
+        sut.put(Point.create(0, 0), "Expected Message");
 
         assertEquals("Expected Message", sut.getSeparatedValues());
     }

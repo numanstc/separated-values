@@ -28,4 +28,8 @@ public class FixedSizeValues {
     public void setSeparator(String separator) {
         this.separator = separator;
     }
+
+    public void put(Point point, String value) {
+        panel[point.getRow()][point.getCol()] = value;
+    }
 }
