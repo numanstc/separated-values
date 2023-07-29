@@ -20,8 +20,8 @@ class FixedSizeValuesTest {
         FixedSizeValues sut = new FixedSizeValues(1, 2);
         sut.setSeparator(",");
 
-        sut.put(0, 0, "Col 1");
-        sut.put(0, 1, "Col 2");
+        sut.put(Point.create(1, 1), "Col 1");
+        sut.put(Point.create(1, 2), "Col 2");
 
         assertEquals("Col 1,Col 2", sut.getSeparatedValues());
     }

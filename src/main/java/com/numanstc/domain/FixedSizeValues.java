@@ -9,8 +9,8 @@ public class FixedSizeValues {
         panel = new String[rowSize][colSize];
     }
 
-    public void put(int row, int col, String value) {
-        panel[row][col] = value;
+    public void put(Point point, String value) {
+        panel[point.row() - 1][point.column() - 1] = value;
     }
 
     public String getSeparatedValues() {
@@ -27,9 +27,5 @@ public class FixedSizeValues {
 
     public void setSeparator(String separator) {
         this.separator = separator;
-    }
-
-    public void put(Point point, String value) {
-        panel[point.row() - 1][point.column() - 1] = value;
     }
 }
