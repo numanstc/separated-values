@@ -1,6 +1,9 @@
 package com.numanstc.domain;
 
+import java.util.Objects;
+
 public class FixedSizeValues {
+    private static final String EMPTY_COLUMN = "";
 
     private final String[][] panel;
     private String separator;
@@ -17,7 +20,7 @@ public class FixedSizeValues {
         StringBuilder separatedValues = new StringBuilder();
         for (String[] row : panel) {
             for (int colIndex = 0; colIndex < row.length; colIndex++) {
-                separatedValues.append(row[colIndex]);
+                separatedValues.append(Objects.requireNonNullElse(row[colIndex], EMPTY_COLUMN));
                 if (colIndex != row.length - 1)
                     separatedValues.append(separator);
             }
