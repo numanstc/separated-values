@@ -18,12 +18,14 @@ public class FixedSizeValues {
 
     public String getSeparatedValues() {
         StringBuilder separatedValues = new StringBuilder();
-        for (String[] row : panel) {
-            for (int colIndex = 0; colIndex < row.length; colIndex++) {
-                separatedValues.append(Objects.requireNonNullElse(row[colIndex], EMPTY_COLUMN));
-                if (colIndex != row.length - 1)
+        for (int rowIndex = 0; rowIndex < panel.length; rowIndex++) {
+            for (int colIndex = 0; colIndex < panel[rowIndex].length; colIndex++) {
+                separatedValues.append(Objects.requireNonNullElse(panel[rowIndex][colIndex], EMPTY_COLUMN));
+                if (colIndex != panel[rowIndex].length - 1)
                     separatedValues.append(separator);
             }
+            if (rowIndex != panel.length - 1)
+                separatedValues.append(System.lineSeparator());
         }
         return separatedValues.toString();
     }
