@@ -30,6 +30,6 @@ public class FixedSizeValues {
     }
 
     public void put(Point point, String value) {
-        panel[point.getRow()][point.getCol()] = value;
+        panel[point.row() - 1][point.column() - 1] = value;
     }
 }

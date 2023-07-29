@@ -1,22 +1,15 @@
 package com.numanstc.domain;
 
-public class Point {
-    private final int row;
-    private final int col;
-    public Point(int row, int col) {
-        this.row = row;
-        this.col = col;
+/**
+ * Points start from 1, 1 like an Excel sheet.
+ */
+public record Point(int row, int column) {
+    public Point {
+        if (row <= 0 || column <= 0)
+            throw new IndexOutOfBoundsException("The row or column number must be bigger than zero.");
     }
 
-    public static Point create(int row, int col) {
-        return new Point(row, col);
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public int getCol() {
-        return col;
+    public static Point create(int row, int column) {
+        return new Point(row, column);
     }
 }
