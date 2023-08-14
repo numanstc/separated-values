@@ -18,10 +18,22 @@ class BuilderStyleValuesTest {
         BuilderStyleValues sut = new BuilderStyleValues();
 
         assertEquals("""
-                
                 """,
                 sut
                         .addRow()
+                        .build()
+        );
+    }
+
+    @Test
+    void itShouldAddColumn() {
+        BuilderStyleValues sut = new BuilderStyleValues();
+
+        assertEquals("""
+                Row 1, Col 1""",
+                sut
+                        .addRow()
+                        .addCol("Row 1, Col 1")
                         .build()
         );
     }

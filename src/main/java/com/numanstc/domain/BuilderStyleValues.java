@@ -10,7 +10,13 @@ public class BuilderStyleValues {
     }
 
     public BuilderStyleValues addRow() {
-        builder.append(System.lineSeparator());
+        if (!builder.isEmpty())
+            builder.append(System.lineSeparator());
+        return this;
+    }
+
+    public BuilderStyleValues addCol(String value) {
+        builder.append(value);
         return this;
     }
 }
