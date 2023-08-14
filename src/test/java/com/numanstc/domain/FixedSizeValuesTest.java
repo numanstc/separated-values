@@ -66,7 +66,7 @@ class FixedSizeValuesTest {
         );
     }
     @Test
-    void itShouldReturnThreeLinesAndTwoColumnsAndFirsLineNull() {
+    void itShouldReturnTwoLinesAndTwoColumnsAndFirsLineNull() {
         FixedSizeValues sut = new FixedSizeValues(2, 2);
         sut.setSeparator(";");
 
