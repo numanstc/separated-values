@@ -8,18 +8,15 @@ class BuilderStyleValuesTest {
 
     @Test
     void itShouldBuildEmptyValues() {
-        BuilderStyleValues sut = new BuilderStyleValues();
-
-        assertEquals("", sut.build());
+        assertEquals("", BuilderStyleValues.builder().build());
     }
 
     @Test
     void itShouldAddRows() {
-        BuilderStyleValues sut = new BuilderStyleValues();
-
         assertEquals("""
                 """,
-                sut
+                BuilderStyleValues
+                        .builder()
                         .addRow()
                         .build()
         );
@@ -27,11 +24,10 @@ class BuilderStyleValuesTest {
 
     @Test
     void itShouldAddColumn() {
-        BuilderStyleValues sut = new BuilderStyleValues();
-
         assertEquals("""
                 Row 1, Col 1""",
-                sut
+                BuilderStyleValues
+                        .builder()
                         .addRow()
                         .addCol("Row 1, Col 1")
                         .build()

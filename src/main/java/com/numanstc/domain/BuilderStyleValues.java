@@ -2,6 +2,13 @@ package com.numanstc.domain;
 
 public class BuilderStyleValues {
 
+    private BuilderStyleValues() {
+    }
+
+    public static BuilderStyleValues builder() {
+        return new BuilderStyleValues();
+    }
+
     private final StringBuilder builder = new StringBuilder();
 
 
