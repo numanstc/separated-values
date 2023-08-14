@@ -8,7 +8,11 @@ class BuilderStyleValuesTest {
 
     @Test
     void itShouldBuildEmptyValues() {
-        assertEquals("", BuilderStyleValues.builder().build());
+        assertEquals("",
+                BuilderStyleValues
+                        .builder("!")
+                        .build()
+        );
     }
 
     @Test
@@ -16,7 +20,7 @@ class BuilderStyleValuesTest {
         assertEquals("""
                 """,
                 BuilderStyleValues
-                        .builder()
+                        .builder(Separator.SEMICOLON)
                         .addRow()
                         .build()
         );
@@ -27,7 +31,7 @@ class BuilderStyleValuesTest {
         assertEquals("""
                 Row 1, Col 1""",
                 BuilderStyleValues
-                        .builder()
+                        .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")
                         .build()
@@ -40,7 +44,7 @@ class BuilderStyleValuesTest {
                 Row 1, Col 1
                 Row 2, Col 1""",
                 BuilderStyleValues
-                        .builder()
+                        .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")
                         .addRow()
