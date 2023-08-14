@@ -13,4 +13,17 @@ class BuilderStyleValuesTest {
         assertEquals("", sut.build());
     }
 
+    @Test
+    void itShouldAddRows() {
+        BuilderStyleValues sut = new BuilderStyleValues();
+
+        assertEquals("""
+                
+                """,
+                sut
+                        .addRow()
+                        .build()
+        );
+    }
+
 }
