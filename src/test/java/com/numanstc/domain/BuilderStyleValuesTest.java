@@ -2,7 +2,7 @@ package com.numanstc.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BuilderStyleValuesTest {
 
@@ -29,7 +29,7 @@ class BuilderStyleValuesTest {
     @Test
     void itShouldAddColumn() {
         assertEquals("""
-                Row 1, Col 1""",
+                        Row 1, Col 1""",
                 BuilderStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
@@ -41,8 +41,8 @@ class BuilderStyleValuesTest {
     @Test
     void itShouldAddMultipleRowsColumn() {
         assertEquals("""
-                Row 1, Col 1
-                Row 2, Col 1""",
+                        Row 1, Col 1
+                        Row 2, Col 1""",
                 BuilderStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
@@ -56,12 +56,28 @@ class BuilderStyleValuesTest {
     @Test
     void itShouldAddMultipleRows() {
         assertEquals("""
-                Row 1, Col 1;Row 1, Col 2""",
+                        Row 1, Col 1;Row 1, Col 2""",
                 BuilderStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")
                         .addCol("Row 1, Col 2")
+                        .build()
+        );
+    }
+
+    @Test
+    void itShouldReturnTwoLinesAndTwoColumnsAndFirsLineNull() {
+        assertEquals(
+                """
+                        ;
+                        Row 2, Col 1;Row 2, Col 2""",
+                BuilderStyleValues
+                        .builder(Separator.SEMICOLON)
+                        .addRow()
+                        .addRow()
+                        .addCol("Row 2, Col 1")
+                        .addCol("Row 2, Col 2")
                         .build()
         );
     }
