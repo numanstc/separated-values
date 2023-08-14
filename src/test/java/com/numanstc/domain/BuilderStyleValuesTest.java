@@ -34,4 +34,19 @@ class BuilderStyleValuesTest {
         );
     }
 
+    @Test
+    void itShouldAddMultipleRowsColumn() {
+        assertEquals("""
+                Row 1, Col 1
+                Row 2, Col 1""",
+                BuilderStyleValues
+                        .builder()
+                        .addRow()
+                        .addCol("Row 1, Col 1")
+                        .addRow()
+                        .addCol("Row 2, Col 1")
+                        .build()
+        );
+    }
+
 }
