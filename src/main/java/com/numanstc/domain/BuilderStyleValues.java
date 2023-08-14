@@ -1,16 +1,15 @@
 package com.numanstc.domain;
 
 public class BuilderStyleValues {
+    private final StringBuilder builder;
 
     private BuilderStyleValues() {
+        builder = new StringBuilder();
     }
 
     public static BuilderStyleValues builder() {
         return new BuilderStyleValues();
     }
-
-    private final StringBuilder builder = new StringBuilder();
-
 
     public String build() {
         return builder.toString();
