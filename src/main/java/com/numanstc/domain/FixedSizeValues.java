@@ -33,4 +33,8 @@ public class FixedSizeValues {
     public void setSeparator(String separator) {
         this.separator = separator;
     }
+
+    public void setSeparator(Separator separator) {
+        this.separator = separator.getText();
+    }
 }

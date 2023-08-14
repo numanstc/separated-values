@@ -100,6 +100,22 @@ class FixedSizeValuesTest {
         );
     }
 
+    @Test
+    void itCanUseSeparatorEnum() {
+        FixedSizeValues sut = new FixedSizeValues(2, 2);
+        sut.setSeparator(Separator.SEMICOLON);
 
+        sut.put(Point.create(1, 1), "Row 1, Col 1");
+        sut.put(Point.create(1, 2), "Row 1, Col 2");
+        sut.put(Point.create(2, 1), "Row 2, Col 1");
+        sut.put(Point.create(2, 2), "Row 2, Col 2");
+
+        assertEquals(
+                """
+                        Row 1, Col 1;Row 1, Col 2
+                        Row 2, Col 1;Row 2, Col 2""",
+                sut.getSeparatedValues()
+        );
+    }
 
 }
