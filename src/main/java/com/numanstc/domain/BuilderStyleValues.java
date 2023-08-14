@@ -1,11 +1,12 @@
 package com.numanstc.domain;
 
 public class BuilderStyleValues {
-    private final String separator;
+    private static final String ROW_SEPARATOR = System.lineSeparator();
+    private final String colSeparator;
     private final StringBuilder builder;
 
-    private BuilderStyleValues(String separator) {
-        this.separator = separator;
+    private BuilderStyleValues(String colSeparator) {
+        this.colSeparator = colSeparator;
         builder = new StringBuilder();
     }
 
@@ -23,7 +24,7 @@ public class BuilderStyleValues {
 
     public BuilderStyleValues addRow() {
         if (!builder.isEmpty())
-            builder.append(System.lineSeparator());
+            builder.append(ROW_SEPARATOR);
         return this;
     }
 
@@ -34,9 +35,9 @@ public class BuilderStyleValues {
     }
 
     private void addSeparator() {
-        int lastLineIndex = builder.lastIndexOf(System.lineSeparator());
+        int lastLineIndex = builder.lastIndexOf(ROW_SEPARATOR);
         int length = builder.length();
         if (length > lastLineIndex + 1 && length > 0)
-            builder.append(separator);
+            builder.append(colSeparator);
     }
 }
