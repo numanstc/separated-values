@@ -53,4 +53,16 @@ class BuilderStyleValuesTest {
         );
     }
 
+    @Test
+    void itShouldAddMultipleRows() {
+        assertEquals("""
+                Row 1, Col 1;Row 1, Col 2""",
+                BuilderStyleValues
+                        .builder(Separator.SEMICOLON)
+                        .addRow()
+                        .addCol("Row 1, Col 1")
+                        .addCol("Row 1, Col 2")
+                        .build()
+        );
+    }
 }

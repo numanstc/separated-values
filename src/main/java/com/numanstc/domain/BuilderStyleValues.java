@@ -28,7 +28,15 @@ public class BuilderStyleValues {
     }
 
     public BuilderStyleValues addCol(String value) {
+        addSeparator();
         builder.append(value);
         return this;
+    }
+
+    private void addSeparator() {
+        int lastLineIndex = builder.lastIndexOf(System.lineSeparator());
+        int length = builder.length();
+        if (length > lastLineIndex + 1 && length > 0)
+            builder.append(separator);
     }
 }
