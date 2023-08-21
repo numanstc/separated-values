@@ -6,7 +6,7 @@ public class BuilderStyleValues {
     private final StringBuilder builder;
     private int maxRowNumber = 0;
     private int maxColNumber = 0;
-    private int colNumber = 0;
+    private int currentColNumber = 0;
 
     private BuilderStyleValues(String colSeparator) {
         this.colSeparator = colSeparator;
@@ -26,7 +26,7 @@ public class BuilderStyleValues {
     }
 
     public BuilderStyleValues addRow() {
-        colNumber = 0;
+        currentColNumber = 0;
         maxRowNumber++;
         if (maxRowNumber <= 1)
             builder.append("");
@@ -50,14 +50,14 @@ public class BuilderStyleValues {
     }
 
     private void addColNumber() {
-        if (++colNumber > maxColNumber && !isFirstColumn()) {
-            maxColNumber = colNumber;
+        if (++currentColNumber > maxColNumber && !isFirstColumn()) {
+            maxColNumber = currentColNumber;
             addEmptyColPreviousRows();
         }
     }
 
     private boolean isFirstColumn() {
-        return colNumber == 1;
+        return currentColNumber == 1;
     }
 
     private void addEmptyColPreviousRows() {
