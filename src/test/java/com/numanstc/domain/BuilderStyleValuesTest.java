@@ -81,4 +81,21 @@ class BuilderStyleValuesTest {
                         .build()
         );
     }
+
+    @Test
+    void itShouldReturnTwoLinesAndThreeColumnsAndFirsLineNull() {
+        assertEquals(
+                """
+                        ;;
+                        Row 2, Col 1;Row 2, Col 2;Row 2, Col 3""",
+                BuilderStyleValues
+                        .builder(Separator.SEMICOLON)
+                        .addRow()
+                        .addRow()
+                        .addCol("Row 2, Col 1")
+                        .addCol("Row 2, Col 2")
+                        .addCol("Row 2, Col 3")
+                        .build()
+        );
+    }
 }

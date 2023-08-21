@@ -50,11 +50,14 @@ public class BuilderStyleValues {
     }
 
     private void addColNumber() {
-        colNumber++;
-        if (colNumber - 1 > maxColNumber) {
+        if (++colNumber > maxColNumber && !isFirstColumn()) {
             maxColNumber = colNumber;
             addEmptyColPreviousRows();
         }
+    }
+
+    private boolean isFirstColumn() {
+        return colNumber == 1;
     }
 
     private void addEmptyColPreviousRows() {
