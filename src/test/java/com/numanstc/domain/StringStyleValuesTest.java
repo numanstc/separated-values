@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BuilderStyleValuesTest {
+class StringStyleValuesTest {
 
     @Test
     void itShouldBuildEmptyValues() {
         assertEquals("",
-                BuilderStyleValues
+                StringStyleValues
                         .builder("!")
                         .build()
         );
@@ -19,7 +19,7 @@ class BuilderStyleValuesTest {
     void itShouldAddRows() {
         assertEquals("""
                 """,
-                BuilderStyleValues
+                StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .build()
@@ -30,7 +30,7 @@ class BuilderStyleValuesTest {
     void itShouldAddColumn() {
         assertEquals("""
                         Row 1, Col 1""",
-                BuilderStyleValues
+                StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")
@@ -43,7 +43,7 @@ class BuilderStyleValuesTest {
         assertEquals("""
                         Row 1, Col 1
                         Row 2, Col 1""",
-                BuilderStyleValues
+                StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")
@@ -57,7 +57,7 @@ class BuilderStyleValuesTest {
     void itShouldAddMultipleRows() {
         assertEquals("""
                         Row 1, Col 1;Row 1, Col 2""",
-                BuilderStyleValues
+                StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")
@@ -72,7 +72,7 @@ class BuilderStyleValuesTest {
                 """
                         ;
                         Row 2, Col 1;Row 2, Col 2""",
-                BuilderStyleValues
+                StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addRow()
@@ -88,7 +88,7 @@ class BuilderStyleValuesTest {
                 """
                         ;;
                         Row 2, Col 1;Row 2, Col 2;Row 2, Col 3""",
-                BuilderStyleValues
+                StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addRow()
@@ -105,7 +105,7 @@ class BuilderStyleValuesTest {
                 """
                         Row 1, Col 1;Row 1, Col 2
                         """,
-                BuilderStyleValues
+                StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")
@@ -122,7 +122,7 @@ class BuilderStyleValuesTest {
                         Row 1, Col 1;Row 1, Col 2;Row 1, Col 3
                         ;;
                         Row 3, Col 1;Row 3, Col 2;Row 3, Col 3""",
-                BuilderStyleValues
+                StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")
@@ -145,7 +145,7 @@ class BuilderStyleValuesTest {
                         ;;
                         ;;
                         Row 3, Col 1;Row 3, Col 2;Row 3, Col 3""",
-                BuilderStyleValues
+                StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")

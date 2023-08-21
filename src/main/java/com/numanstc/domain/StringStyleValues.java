@@ -1,6 +1,6 @@
 package com.numanstc.domain;
 
-public class BuilderStyleValues {
+public class StringStyleValues {
     private static final String ROW_SEPARATOR = System.lineSeparator();
     private final String colSeparator;
     private final StringBuilder builder;
@@ -9,24 +9,24 @@ public class BuilderStyleValues {
     private int minColNumber = 0;
     private int currentColNumber = 0;
 
-    private BuilderStyleValues(String colSeparator) {
+    private StringStyleValues(String colSeparator) {
         this.colSeparator = colSeparator;
         builder = new StringBuilder();
     }
 
-    public static BuilderStyleValues builder(Separator separator) {
-        return new BuilderStyleValues(separator.getText());
+    public static StringStyleValues builder(Separator separator) {
+        return new StringStyleValues(separator.getText());
     }
 
-    public static BuilderStyleValues builder(String separator) {
-        return new BuilderStyleValues(separator);
+    public static StringStyleValues builder(String separator) {
+        return new StringStyleValues(separator);
     }
 
     public String build() {
         return builder.toString();
     }
 
-    public BuilderStyleValues addRow() {
+    public StringStyleValues addRow() {
         if (currentColNumber < minColNumber)
             minColNumber = currentColNumber;
 
@@ -52,7 +52,7 @@ public class BuilderStyleValues {
         }
     }
 
-    public BuilderStyleValues addCol(String value) {
+    public StringStyleValues addCol(String value) {
         addSeparator();
         builder.append(value);
         addColNumber();
