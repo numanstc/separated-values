@@ -98,4 +98,20 @@ class BuilderStyleValuesTest {
                         .build()
         );
     }
+
+    @Test
+    void itShouldReturnTwoLinesAndTwoColumnsAndSecondLineNull() {
+        assertEquals(
+                """
+                        Row 1, Col 1;Row 1, Col 2
+                        """,
+                BuilderStyleValues
+                        .builder(Separator.SEMICOLON)
+                        .addRow()
+                        .addCol("Row 1, Col 1")
+                        .addCol("Row 1, Col 2")
+                        .addRow()
+                        .build()
+        );
+    }
 }
