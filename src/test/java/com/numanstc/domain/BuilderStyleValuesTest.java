@@ -114,4 +114,26 @@ class BuilderStyleValuesTest {
                         .build()
         );
     }
+
+    @Test
+    void itShouldReturnTreeLinesAndTreeColumnsAndSecondLineNull() {
+        assertEquals(
+                """
+                        Row 1, Col 1;Row 1, Col 2;Row 1, Col 3
+                        ;;
+                        Row 3, Col 1;Row 3, Col 2;Row 3, Col 3""",
+                BuilderStyleValues
+                        .builder(Separator.SEMICOLON)
+                        .addRow()
+                        .addCol("Row 1, Col 1")
+                        .addCol("Row 1, Col 2")
+                        .addCol("Row 1, Col 3")
+                        .addRow()
+                        .addRow()
+                        .addCol("Row 3, Col 1")
+                        .addCol("Row 3, Col 2")
+                        .addCol("Row 3, Col 3")
+                        .build()
+        );
+    }
 }

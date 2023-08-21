@@ -6,6 +6,7 @@ public class BuilderStyleValues {
     private final StringBuilder builder;
     private int maxRowNumber = 0;
     private int maxColNumber = 0;
+    private int minColNumber = 0;
     private int currentColNumber = 0;
 
     private BuilderStyleValues(String colSeparator) {
@@ -26,13 +27,28 @@ public class BuilderStyleValues {
     }
 
     public BuilderStyleValues addRow() {
+        if (currentColNumber < minColNumber)
+            minColNumber = currentColNumber;
+
         currentColNumber = 0;
         maxRowNumber++;
         if (maxRowNumber <= 1)
             builder.append("");
         else
             builder.append(ROW_SEPARATOR);
+
+        checkColNumber();
         return this;
+    }
+
+    private void checkColNumber() {
+        int rowSeparatorIndex = builder.lastIndexOf(ROW_SEPARATOR);
+        rowSeparatorIndex = builder.lastIndexOf(ROW_SEPARATOR, rowSeparatorIndex - 1);
+        for (; minColNumber < maxColNumber && rowSeparatorIndex > 0; minColNumber++) {
+            if (minColNumber == 1)
+                continue;
+            builder.insert(rowSeparatorIndex + 1, colSeparator);
+        }
     }
 
     public BuilderStyleValues addCol(String value) {
