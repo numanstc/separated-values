@@ -2,13 +2,13 @@ package com.numanstc.domain;
 
 import java.util.Objects;
 
-public class FixedSizeValues {
+public class TableStyleValues {
     private static final String EMPTY_COLUMN = "";
 
     private final String[][] panel;
     private String separator;
 
-    public FixedSizeValues(int rowSize, int colSize) {
+    public TableStyleValues(int rowSize, int colSize) {
         panel = new String[rowSize][colSize];
     }
 

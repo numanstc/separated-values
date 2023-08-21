@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FixedSizeValuesTest {
+class TableStyleValuesTest {
 
     @Test
     void itShouldReturnAOneLineAndOneColumnValue() {
-        FixedSizeValues sut = new FixedSizeValues(1, 1);
+        TableStyleValues sut = new TableStyleValues(1, 1);
 
         sut.put(Point.create(1, 1), "Expected Message");
 
@@ -17,7 +17,7 @@ class FixedSizeValuesTest {
 
     @Test
     void itShouldReturnAOneLineAndTwoColumnsValue() {
-        FixedSizeValues sut = new FixedSizeValues(1, 2);
+        TableStyleValues sut = new TableStyleValues(1, 2);
         sut.setSeparator(",");
 
         sut.put(Point.create(1, 1), "Col 1");
@@ -28,7 +28,7 @@ class FixedSizeValuesTest {
 
     @Test
     void itShouldReturnOneLineAndThreeColumnsAndFirsColumnNull() {
-        FixedSizeValues sut = new FixedSizeValues(1, 3);
+        TableStyleValues sut = new TableStyleValues(1, 3);
         sut.setSeparator(",");
 
         sut.put(Point.create(1, 2), "Col 2");
@@ -39,7 +39,7 @@ class FixedSizeValuesTest {
 
     @Test
     void itShouldReturnOneLineAndThreeColumnsAndLastColumnNull() {
-        FixedSizeValues sut = new FixedSizeValues(1, 3);
+        TableStyleValues sut = new TableStyleValues(1, 3);
         sut.setSeparator(",");
 
         sut.put(Point.create(1, 1), "Col 1");
@@ -50,7 +50,7 @@ class FixedSizeValuesTest {
 
     @Test
     void itShouldReturnTwoLinesAndTwoColumns() {
-        FixedSizeValues sut = new FixedSizeValues(2, 2);
+        TableStyleValues sut = new TableStyleValues(2, 2);
         sut.setSeparator(";");
 
         sut.put(Point.create(1, 1), "Row 1, Col 1");
@@ -67,7 +67,7 @@ class FixedSizeValuesTest {
     }
     @Test
     void itShouldReturnTwoLinesAndTwoColumnsAndFirsLineNull() {
-        FixedSizeValues sut = new FixedSizeValues(2, 2);
+        TableStyleValues sut = new TableStyleValues(2, 2);
         sut.setSeparator(";");
 
         sut.put(Point.create(2, 1), "Row 2, Col 1");
@@ -83,7 +83,7 @@ class FixedSizeValuesTest {
 
     @Test
     void itShouldReturnThreeLinesAndTwoColumnsAndLastLineNull() {
-        FixedSizeValues sut = new FixedSizeValues(3, 2);
+        TableStyleValues sut = new TableStyleValues(3, 2);
         sut.setSeparator(";");
 
         sut.put(Point.create(1, 1), "Row 1, Col 1");
@@ -102,7 +102,7 @@ class FixedSizeValuesTest {
 
     @Test
     void itCanUseSeparatorEnum() {
-        FixedSizeValues sut = new FixedSizeValues(2, 2);
+        TableStyleValues sut = new TableStyleValues(2, 2);
         sut.setSeparator(Separator.SEMICOLON);
 
         sut.put(Point.create(1, 1), "Row 1, Col 1");
