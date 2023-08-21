@@ -12,7 +12,7 @@ class TableStyleValuesTest {
 
         sut.put(Point.create(1, 1), "Expected Message");
 
-        assertEquals("Expected Message", sut.getSeparatedValues());
+        assertEquals("Expected Message", sut.create());
     }
 
     @Test
@@ -23,7 +23,7 @@ class TableStyleValuesTest {
         sut.put(Point.create(1, 1), "Col 1");
         sut.put(Point.create(1, 2), "Col 2");
 
-        assertEquals("Col 1,Col 2", sut.getSeparatedValues());
+        assertEquals("Col 1,Col 2", sut.create());
     }
 
     @Test
@@ -34,7 +34,7 @@ class TableStyleValuesTest {
         sut.put(Point.create(1, 2), "Col 2");
         sut.put(Point.create(1, 3), "Col 3");
 
-        assertEquals(",Col 2,Col 3", sut.getSeparatedValues());
+        assertEquals(",Col 2,Col 3", sut.create());
     }
 
     @Test
@@ -45,7 +45,7 @@ class TableStyleValuesTest {
         sut.put(Point.create(1, 1), "Col 1");
         sut.put(Point.create(1, 2), "Col 2");
 
-        assertEquals("Col 1,Col 2,", sut.getSeparatedValues());
+        assertEquals("Col 1,Col 2,", sut.create());
     }
 
     @Test
@@ -62,7 +62,7 @@ class TableStyleValuesTest {
                 """
                         Row 1, Col 1;Row 1, Col 2
                         Row 2, Col 1;Row 2, Col 2""",
-                sut.getSeparatedValues()
+                sut.create()
         );
     }
     @Test
@@ -77,7 +77,7 @@ class TableStyleValuesTest {
                 """
                         ;
                         Row 2, Col 1;Row 2, Col 2""",
-                sut.getSeparatedValues()
+                sut.create()
         );
     }
 
@@ -96,7 +96,7 @@ class TableStyleValuesTest {
                         Row 1, Col 1;Row 1, Col 2
                         Row 2, Col 1;Row 2, Col 2
                         ;""",
-                sut.getSeparatedValues()
+                sut.create()
         );
     }
 
@@ -114,7 +114,7 @@ class TableStyleValuesTest {
                 """
                         Row 1, Col 1;Row 1, Col 2
                         Row 2, Col 1;Row 2, Col 2""",
-                sut.getSeparatedValues()
+                sut.create()
         );
     }
 

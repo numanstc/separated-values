@@ -11,7 +11,7 @@ class StringStyleValuesTest {
         assertEquals("",
                 StringStyleValues
                         .builder("!")
-                        .build()
+                        .create()
         );
     }
 
@@ -22,7 +22,7 @@ class StringStyleValuesTest {
                 StringStyleValues
                         .builder(Separator.SEMICOLON)
                         .addRow()
-                        .build()
+                        .create()
         );
     }
 
@@ -34,7 +34,7 @@ class StringStyleValuesTest {
                         .builder(Separator.SEMICOLON)
                         .addRow()
                         .addCol("Row 1, Col 1")
-                        .build()
+                        .create()
         );
     }
 
@@ -49,7 +49,7 @@ class StringStyleValuesTest {
                         .addCol("Row 1, Col 1")
                         .addRow()
                         .addCol("Row 2, Col 1")
-                        .build()
+                        .create()
         );
     }
 
@@ -62,7 +62,7 @@ class StringStyleValuesTest {
                         .addRow()
                         .addCol("Row 1, Col 1")
                         .addCol("Row 1, Col 2")
-                        .build()
+                        .create()
         );
     }
 
@@ -78,7 +78,7 @@ class StringStyleValuesTest {
                         .addRow()
                         .addCol("Row 2, Col 1")
                         .addCol("Row 2, Col 2")
-                        .build()
+                        .create()
         );
     }
 
@@ -95,7 +95,7 @@ class StringStyleValuesTest {
                         .addCol("Row 2, Col 1")
                         .addCol("Row 2, Col 2")
                         .addCol("Row 2, Col 3")
-                        .build()
+                        .create()
         );
     }
 
@@ -111,7 +111,7 @@ class StringStyleValuesTest {
                         .addCol("Row 1, Col 1")
                         .addCol("Row 1, Col 2")
                         .addRow()
-                        .build()
+                        .create()
         );
     }
 
@@ -133,7 +133,7 @@ class StringStyleValuesTest {
                         .addCol("Row 3, Col 1")
                         .addCol("Row 3, Col 2")
                         .addCol("Row 3, Col 3")
-                        .build()
+                        .create()
         );
     }
 
@@ -157,7 +157,7 @@ class StringStyleValuesTest {
                         .addCol("Row 3, Col 1")
                         .addCol("Row 3, Col 2")
                         .addCol("Row 3, Col 3")
-                        .build()
+                        .create()
         );
     }
 }

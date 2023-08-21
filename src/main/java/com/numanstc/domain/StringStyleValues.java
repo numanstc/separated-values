@@ -22,7 +22,7 @@ public class StringStyleValues {
         return new StringStyleValues(separator);
     }
 
-    public String build() {
+    public String create() {
         return builder.toString();
     }
 

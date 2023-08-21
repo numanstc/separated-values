@@ -16,7 +16,7 @@ public class TableStyleValues {
         panel[point.row() - 1][point.column() - 1] = value;
     }
 
-    public String getSeparatedValues() {
+    public String create() {
         StringBuilder separatedValues = new StringBuilder();
         for (int rowIndex = 0; rowIndex < panel.length; rowIndex++) {
             for (int colIndex = 0; colIndex < panel[rowIndex].length; colIndex++) {
