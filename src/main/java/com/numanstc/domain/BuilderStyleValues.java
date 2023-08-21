@@ -45,8 +45,9 @@ public class BuilderStyleValues {
         int rowSeparatorIndex = builder.lastIndexOf(ROW_SEPARATOR);
         rowSeparatorIndex = builder.lastIndexOf(ROW_SEPARATOR, rowSeparatorIndex - 1);
         for (; minColNumber < maxColNumber && rowSeparatorIndex > 0; minColNumber++) {
-            if (minColNumber == 1)
+            if (isFirstColumn(minColNumber))
                 continue;
+
             builder.insert(rowSeparatorIndex + 1, colSeparator);
         }
     }
@@ -66,14 +67,14 @@ public class BuilderStyleValues {
     }
 
     private void addColNumber() {
-        if (++currentColNumber > maxColNumber && !isFirstColumn()) {
+        if (++currentColNumber > maxColNumber && !isFirstColumn(currentColNumber)) {
             maxColNumber = currentColNumber;
             addEmptyColPreviousRows();
         }
     }
 
-    private boolean isFirstColumn() {
-        return currentColNumber == 1;
+    private boolean isFirstColumn(int col) {
+        return col == 1;
     }
 
     private void addEmptyColPreviousRows() {
